@@ -4,6 +4,7 @@
 <link rel="import" href="../d2l-polymer-siren-behaviors/store/entity-store.html">
 <link rel="import" href="../d2l-polymer-siren-behaviors/store/entity-behavior.html">
 <link rel="import" href="../d2l-polymer-siren-behaviors/store/siren-action-behavior.html">
+<link rel="import" href="../d2l-hm-constants-behavior/d2l-hm-constants-behavior.html">
 <link rel="import" href="d2l-outcomes-loa-demonstration-level.html">
 
 <!--
@@ -18,12 +19,16 @@ Polymer Web-Component to display levels of achievements
 			d2l-squishy-button-selector {
 				width: 100%;
 			}
+
+			d2l-squishy-button[selected] {
+				pointer-events: none;
+			}
 		</style>
 
-		<d2l-squishy-button-selector selected-index={{_selectedNum}}>
+		<d2l-squishy-button-selector read-only="[[!_hasAction]]" selected-index="{{_selectedNum}}">
 			<template is="dom-repeat" items="[[_getDemonstrationLevels(entity)]]">
-				<d2l-squishy-button selected="[[item.selected]]" button-data=[[_getButtonData(item)]] style$="[[_getButtonStyle(item)]]">
-					<d2l-outcomes-loa-demonstration-level href=[[item.entity]] token=[[token]]></d2l-outcomes-loa-demonstration-level>
+				<d2l-squishy-button selected="[[item.selected]]" button-data="[[_getButtonData(item)]]" style$="[[_getButtonStyle(item)]]">
+					<d2l-outcomes-loa-demonstration-level href="[[item.entity]]" token="[[token]]"></d2l-outcomes-loa-demonstration-level>
 				</d2l-squishy-button>
 			</template>
 		</d2l-squishy-button-selector>
@@ -33,20 +38,14 @@ Polymer Web-Component to display levels of achievements
 		Polymer({
 			is: 'd2l-outcomes-level-of-achievements',
 			properties: {
-				token: {
-					type: String,
-					value: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6IjJjMjdmNDlhLWZmZDMtNGI3Yi1iYTg5LWY3ODBmODBmZGY4NyJ9.eyJzdWIiOiIxNjkiLCJ0ZW5hbnRpZCI6IjJjMzhmM2RhLTRmY2MtNDYyOS05NzBhLWFlYzAzZjcyOTk2MCIsInNjb3BlIjoiKjoqOioiLCJqdGkiOiJiYzkxMWVlNS0yMzMwLTQ3NzktOGZlMS1hNjJhYTBmMDU5MzAiLCJpc3MiOiJodHRwczovL2FwaS5icmlnaHRzcGFjZS5jb20vYXV0aCIsImF1ZCI6Imh0dHBzOi8vYXBpLmJyaWdodHNwYWNlLmNvbS9hdXRoL3Rva2VuIiwiZXhwIjoxNTM5NzMyODI4LCJuYmYiOjE1Mzk3MjkyMjh9.e3U3bsECwCvFHVI0RJbb65rlWZTKwxX-cx9ohplrI4tv7JFcNnnc2rd-bwvMtB5nsTFMVsTFkDbWLq35kA0zLaItDQsJ4uh40l62hyCpxbtJIYhrsUdZ3mgSEzPMA2xy-7Rm34WhRBsIOhk5S5G0-Kb4S4U0WlKh9FWyL1PftxurI3bN2KcQtAlP7znBxQTaLzx-uyhkbm8Zj5ER-bErFfe2FH0_NzKQqCLJ8O6-rY3enTu4V1Dq1mrT2P1J8bGm3gBijeuJXWMzPvKkT5IfksUW2JCNhZQlOp0d0HhgVfGI4PRfM5T8m-Gvr9vASawro6MAIMnvHKrOf33LiokVKQ'
-				},
-				href: {
-					type: String,
-					value: 'https://2c38f3da-4fcc-4629-970a-aec03f729960.demonstrations.api.dev.brightspace.com/organizations/a5031d46-0461-462d-adc1-7851bfd7fe23/demonstrations/65e98c1e-9aab-42a6-bfc3-6e6306141dc0'
-				},
-				_selectedNum: Number
+				_selectedNum: Number,
+				_hasAction: Boolean
 			},
 
 			behaviors: [
 				D2L.PolymerBehaviors.Siren.EntityBehavior,
-				D2L.PolymerBehaviors.Siren.SirenActionBehavior
+				D2L.PolymerBehaviors.Siren.SirenActionBehavior,
+				window.D2L.Hypermedia.HMConstantsBehavior
 			],
 
 			ready: function() {
@@ -62,25 +61,30 @@ Polymer Web-Component to display levels of achievements
 				if (!entity) {
 					return null;
 				}
-				var x = [];
+				var demonstrationLevels = [];
 				var selectedNum = null;
+				var hasAction = false;
 
 				var num = 0;
-				entity.getSubEntitiesByClass('demonstratable-level').forEach(function(e) {
-					var selected = e.hasClass('selected');
-					x.push({
+
+				entity.getSubEntitiesByClass(this.HypermediaClasses.outcomes.demonstratableLevel).forEach(function(e) {
+					var selected = e.hasClass(this.HypermediaClasses.outcomes.selected);
+					hasAction = hasAction || e.hasActionByName(this.HypermediaActions.select);
+
+					demonstrationLevels.push({
 						entity: e.getLinkByRel('https://api.brightspace.com/rels/__todo_level').href,
-						action: e.getActionByName('select'),
+						action: e.getActionByName(this.HypermediaActions.outcomes.select),
 						selected: selected
 					});
-					if (e.hasClass('selected')) {
+					if (e.hasClass(this.HypermediaClasses.outcomes.selected)) {
 						selectedNum = num;
 					}
 					num++;
-				});
+				}.bind(this));
 
 				this._selectedNum = selectedNum;
-				return x;
+				this._hasAction = hasAction;
+				return demonstrationLevels;
 			},
 			_getButtonData: function(item) {
 				return {
