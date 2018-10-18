@@ -23,6 +23,10 @@ Polymer Web-Component to display levels of achievements
 			d2l-squishy-button[selected] {
 				pointer-events: none;
 			}
+
+			:host {
+				display: block;
+			}
 		</style>
 
 		<d2l-squishy-button-selector read-only="[[!_hasAction]]" selected-index="{{_selectedNum}}">
