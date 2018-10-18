@@ -34,8 +34,11 @@ Polymer Web-Component for a responsive list of selectable buttons
 				border-bottom-right-radius: 0;
 			}
 
-			div ::slotted(d2l-squishy-button:last-of-type:not([selected]):not(:focus)) {
-				border-right: solid 1px var(--d2l-color-mica);
+			:host(:dir(rtl)) div ::slotted(d2l-squishy-button:last-of-type) {
+				border-top-left-radius: 6px;
+				border-bottom-left-radius: 6px;
+				border-top-right-radius: 0;
+				border-bottom-right-radius: 0;
 			}
 
 			div ::slotted(d2l-squishy-button:first-of-type) {
@@ -50,19 +53,40 @@ Polymer Web-Component for a responsive list of selectable buttons
 				border-bottom-left-radius: 0;
 			}
 
+			:host(:dir(rtl)) div ::slotted(d2l-squishy-button:first-of-type) {
+				border-top-right-radius: 6px;
+				border-bottom-right-radius: 6px;
+				border-top-left-radius: 0;
+				border-bottom-left-radius: 0;
+			}
+
 			:host-context([dir="rtl"]) div ::slotted(d2l-squishy-button:not([selected]):not(:focus)) {
-				border-right: solid 1px var(--d2l-squishy-button-non-selected-color, var(--d2l-color-mica));
-				border-left: solid 1px var(--d2l-squishy-button-non-selected-color, transparent);
+				border-right: solid 1px var(--d2l-color-mica);
+				border-left: solid 1px transparent;
+			}
+			:host(:dir(rtl)) div ::slotted(d2l-squishy-button:not([selected]):not(:focus)) {
+				border-right: solid 1px var(--d2l-color-mica);
+				border-left: solid 1px transparent;
 			}
 
 			div ::slotted(d2l-squishy-button[right-of-selected]:not([selected]):not(:focus)) {
-				border-left: solid 1px var(--d2l-squishy-button-non-selected-color, transparent);
-				border-right: solid 1px var(--d2l-squishy-button-non-selected-color, var(--d2l-color-mica));
+				border-left: solid 1px transparent;
+			}
+			:host-context([dir="rtl"]) div ::slotted(d2l-squishy-button[right-of-selected]:not([selected]):not(:focus)) {
+				border-right: solid 1px transparent;
+			}
+			:host(:dir(rtl)) div ::slotted(d2l-squishy-button[right-of-selected]:not([selected]):not(:focus)) {
+				border-right: solid 1px transparent;
 			}
 
-			:host-context([dir="rtl"]) div ::slotted(d2l-squishy-button[right-of-selected]:not([selected]):not(:focus)) {
-				border-right: solid 1px var(--d2l-squishy-button-non-selected-color, transparent);
-				border-left: solid 1px var(--d2l-squishy-button-non-selected-color, var(--d2l-color-mica));
+			div ::slotted(d2l-squishy-button:last-of-type:not([selected]):not(:focus)) {
+				border-right: solid 1px var(--d2l-color-mica);
+			}
+			:host-context([dir="rtl"]) div ::slotted(d2l-squishy-button:last-of-type:not([selected]):not(:focus)) {
+				border-left: solid 1px var(--d2l-color-mica);
+			}
+			:host(:dir(rtl)) div ::slotted(d2l-squishy-button:last-of-type:not([selected]):not(:focus)) {
+				border-left: solid 1px var(--d2l-color-mica);
 			}
 
 			:host([disabled]) {
