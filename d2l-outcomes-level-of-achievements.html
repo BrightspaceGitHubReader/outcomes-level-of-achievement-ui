@@ -1,11 +1,11 @@
 <link rel="import" href="../polymer/polymer.html">
-<link rel="import" href="squishy-button-selector/d2l-squishy-button-selector.html">
-<link rel="import" href="squishy-button-selector/d2l-squishy-button.html">
 <link rel="import" href="../d2l-polymer-siren-behaviors/store/entity-store.html">
 <link rel="import" href="../d2l-polymer-siren-behaviors/store/entity-behavior.html">
 <link rel="import" href="../d2l-polymer-siren-behaviors/store/siren-action-behavior.html">
 <link rel="import" href="../d2l-hm-constants-behavior/d2l-hm-constants-behavior.html">
 <link rel="import" href="d2l-outcomes-loa-demonstration-level.html">
+<link rel="import" href="squishy-button-selector/d2l-squishy-button-selector.html">
+<link rel="import" href="squishy-button-selector/d2l-squishy-button.html">
 
 <!--
 `d2l-outcomes-level-of-achievements`
@@ -29,7 +29,7 @@ Polymer Web-Component to display levels of achievements
 			}
 		</style>
 
-		<d2l-squishy-button-selector read-only="[[!_hasAction]]" selected-index="{{_selectedNum}}">
+		<d2l-squishy-button-selector read-only="[[!_hasAction]]">
 			<template is="dom-repeat" items="[[_getDemonstrationLevels(entity)]]">
 				<d2l-squishy-button selected="[[item.selected]]" button-data="[[_getButtonData(item)]]" style$="[[_getButtonStyle(item)]]">
 					<d2l-outcomes-loa-demonstration-level href="[[item.entity]]" token="[[token]]"></d2l-outcomes-loa-demonstration-level>
@@ -42,7 +42,6 @@ Polymer Web-Component to display levels of achievements
 		Polymer({
 			is: 'd2l-outcomes-level-of-achievements',
 			properties: {
-				_selectedNum: Number,
 				_hasAction: Boolean
 			},
 
@@ -69,8 +68,6 @@ Polymer Web-Component to display levels of achievements
 				var selectedNum = null;
 				var hasAction = false;
 
-				var num = 0;
-
 				entity.getSubEntitiesByClass(this.HypermediaClasses.outcomes.demonstratableLevel).forEach(function(e) {
 					var selected = e.hasClass(this.HypermediaClasses.outcomes.selected);
 					hasAction = hasAction || e.hasActionByName(this.HypermediaActions.select);
@@ -80,13 +77,8 @@ Polymer Web-Component to display levels of achievements
 						action: e.getActionByName(this.HypermediaActions.outcomes.select),
 						selected: selected
 					});
-					if (e.hasClass(this.HypermediaClasses.outcomes.selected)) {
-						selectedNum = num;
-					}
-					num++;
 				}.bind(this));
 
-				this._selectedNum = selectedNum;
 				this._hasAction = hasAction;
 				return demonstrationLevels;
 			},

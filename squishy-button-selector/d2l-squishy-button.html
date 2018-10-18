@@ -8,7 +8,7 @@
 			:host {
 				background: none;
 				border: solid 1px var(--d2l-color-mica);
-				border-right: solid 1px var(--d2l-squishy-button-non-selected-color, clear);
+				border-right: solid 1px var(--d2l-squishy-button-non-selected-color, transparent);
 				color: var(--d2l-color-galena);
 				display: flex;
 				flex: 1;
@@ -49,7 +49,7 @@
 			}
 
 			:host([right-of-selected]:not([selected]):not(:focus)) {
-				border-left: solid 1px var(--d2l-squishy-button-non-selected-color, clear)
+				border-left: solid 1px var(--d2l-squishy-button-non-selected-color, transparent);
 			}
 
 			:host(:focus) {
@@ -107,7 +107,8 @@
 			properties: {
 				selected: {
 					type: Boolean,
-					reflectToAttribute: true
+					reflectToAttribute: true,
+					observer: '_handleSelected'
 				},
 
 				index: {
@@ -136,7 +137,7 @@
 				}
 
 				if (event.keyCode === this._keyCodes.ENTER) {
-					this._dispatchItemSelectedEvent();
+					this.selected = true;
 				}
 			},
 
@@ -145,7 +146,15 @@
 					return;
 				}
 
+				this.selected = true;
 				event.preventDefault();
+			},
+
+			_handleSelected: function(newVal, oldVal) {
+				if (newVal === false) {
+					return;
+				}
+
 				this._dispatchItemSelectedEvent();
 			},
 

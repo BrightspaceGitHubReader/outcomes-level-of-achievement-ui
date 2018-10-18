@@ -114,6 +114,7 @@ Polymer Web-Component for a responsive list of selectable buttons
 			_handleDomChanges: function() {
 				this._getListOfAllButtons();
 				this._setButtonProperties();
+				this._updateButtonSelectedAttribute();
 			},
 
 			_getListOfAllButtons() {
@@ -142,6 +143,16 @@ Polymer Web-Component for a responsive list of selectable buttons
 			_updateButtonSelectedAttribute(selectedIndex) {
 				if (!this._buttons) {
 					return;
+				}
+
+				if (selectedIndex === undefined) {
+					var selected = this._buttons.filter(function(button) {
+						return button.hasAttribute('selected');
+					});
+					if (selected.length > 0) {
+						this.selectedIndex = selected[0].index;
+						return;
+					}
 				}
 
 				var isSelected = false
