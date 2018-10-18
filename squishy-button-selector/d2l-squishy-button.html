@@ -132,7 +132,7 @@
 			},
 
 			_onKeyDown: function (event) {
-				if (this.readOnly) {
+				if (this.disabled) {
 					return;
 				}
 
@@ -142,7 +142,7 @@
 			},
 
 			_handleTap: function (event) {
-				if (this.readOnly) {
+				if (this.disabled) {
 					return;
 				}
 
