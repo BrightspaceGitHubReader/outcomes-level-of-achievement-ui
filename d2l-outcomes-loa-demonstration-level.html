@@ -30,12 +30,23 @@ Polymer Web-Component to display levels of achievements
 					notify: true
 				},
 				item: {
-					type: Object
+					type: Object,
+					observer: '_itemChanged'
 				}
 			},
 			observers: [
-				'_updateColor(entity)'
+				'_updateColor(entity, item)'
 			],
+
+			_itemChanged: function(newItem, oldItem) {
+				if (!newItem) {
+					return;
+				}
+				if (!newItem.color && oldItem && oldItem.color) {
+					newItem.color = oldItem.color;
+				}
+			},
+
 			_updateColor: function(entity) {
 				if (!entity) {
 					return;
