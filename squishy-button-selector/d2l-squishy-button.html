@@ -166,8 +166,8 @@
 				this._dispatchItemSelectedEvent(false, newVal);
 			},
 
-			_dispatchItemSelectedEvent: function (onTap, selected) {
-				var eventName = onTap ? 'd2l-squishy-button-selected' : 'd2l-squishy-button-selection-changed';
+			_dispatchItemSelectedEvent: function (triggeredByUserAction, selected) {
+				var eventName = triggeredByUserAction ? 'd2l-squishy-button-selected' : 'd2l-squishy-button-selection-changed';
 				this.dispatchEvent(new CustomEvent(eventName, {
 					detail: {
 						index: this.index,
