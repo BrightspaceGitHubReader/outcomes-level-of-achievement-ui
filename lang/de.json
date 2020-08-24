@@ -1,10 +1,10 @@
 {
-    "calcHelpTitle": "Calculation Method Details",
-    "calculationMethod": "Calculation method: {calcMethod}",
-    "calculationMethodDetails": "Calculation Method Details",
-    "clearManualOverride": "Clear Manual Override",
-    "manuallyOverride": "Manually Override",
-    "recalculateOverallAchievement": "Recalculate Overall Achievement",
-    "selectOverallAchievement": "Select Overall Achievement",
-    "suggestedLevel": "Suggested: {level}"
+   "calcHelpTitle" : "Details zur Berechnungsmethode",
+   "calculationMethod" : "Berechnungsmethode: {calcMethod}",
+   "calculationMethodDetails" : "Details zur Berechnungsmethode",
+   "clearManualOverride" : "Manuelles Überschreiben löschen",
+   "manuallyOverride" : "Manuelles Überschreiben",
+   "recalculateOverallAchievement" : "Gesamtleistung neu berechnen",
+   "selectOverallAchievement" : "Gesamtleistung auswählen",
+   "suggestedLevel" : "Suggested: {level}"
 }

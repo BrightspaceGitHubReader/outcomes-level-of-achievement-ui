@@ -1,10 +1,10 @@
 {
-    "calcHelpTitle": "Calculation Method Details",
-    "calculationMethod": "Calculation method: {calcMethod}",
-    "calculationMethodDetails": "Calculation Method Details",
-    "clearManualOverride": "Clear Manual Override",
-    "manuallyOverride": "Manually Override",
-    "recalculateOverallAchievement": "Recalculate Overall Achievement",
-    "selectOverallAchievement": "Select Overall Achievement",
-    "suggestedLevel": "建议：{level}"
+   "calcHelpTitle" : "计算方法详细信息",
+   "calculationMethod" : "计算方法：{calcMethod}",
+   "calculationMethodDetails" : "计算方法详细信息",
+   "clearManualOverride" : "清除手动改写",
+   "manuallyOverride" : "手动改写",
+   "recalculateOverallAchievement" : "重新计算总成绩",
+   "selectOverallAchievement" : "选择总成绩",
+   "suggestedLevel" : "建议：{level}"
 }

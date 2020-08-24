@@ -1,10 +1,10 @@
 {
-    "calcHelpTitle": "Calculation Method Details",
-    "calculationMethod": "Calculation method: {calcMethod}",
-    "calculationMethodDetails": "Calculation Method Details",
-    "clearManualOverride": "Clear Manual Override",
-    "manuallyOverride": "Manually Override",
-    "recalculateOverallAchievement": "Recalculate Overall Achievement",
-    "selectOverallAchievement": "Select Overall Achievement",
-    "suggestedLevel": "Sugerido: {level}"
+   "calcHelpTitle" : "Detalles del método de cálculo",
+   "calculationMethod" : "Método de cálculo: {calcMethod}",
+   "calculationMethodDetails" : "Detalles del método de cálculo",
+   "clearManualOverride" : "Borrar Anulación manual",
+   "manuallyOverride" : "Anular manualmente",
+   "recalculateOverallAchievement" : "Volver a calcular el logro general",
+   "selectOverallAchievement" : "Seleccionar logro general",
+   "suggestedLevel" : "Sugerido: {level}"
 }

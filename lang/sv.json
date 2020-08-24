@@ -1,10 +1,10 @@
 {
-    "calcHelpTitle": "Calculation Method Details",
-    "calculationMethod": "Calculation method: {calcMethod}",
-    "calculationMethodDetails": "Calculation Method Details",
-    "clearManualOverride": "Clear Manual Override",
-    "manuallyOverride": "Manually Override",
-    "recalculateOverallAchievement": "Recalculate Overall Achievement",
-    "selectOverallAchievement": "Select Overall Achievement",
-    "suggestedLevel": "Förslag: {level}"
+   "calcHelpTitle" : "Beräkningsmetodens detaljer",
+   "calculationMethod" : "Beräkningsmetod: {calcMethod}",
+   "calculationMethodDetails" : "Beräkningsmetodens detaljer",
+   "clearManualOverride" : "Rensa manuell åsidosättning",
+   "manuallyOverride" : "Åsidosätt manuellt",
+   "recalculateOverallAchievement" : "Räkna om övergripande prestation",
+   "selectOverallAchievement" : "Välj övergripande prestation",
+   "suggestedLevel" : "Förslag: {level}"
 }

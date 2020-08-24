@@ -1,3 +1,10 @@
 {
+   "calcHelpTitle" : "Détails sur la méthode de calcul",
+   "calculationMethod" : "Méthode de calcul : {calcMethod}",
+   "calculationMethodDetails" : "Détails sur la méthode de calcul",
+   "clearManualOverride" : "Annuler le remplacement manuel",
+   "manuallyOverride" : "Remplacer manuellement",
+   "recalculateOverallAchievement" : "Recalculer la réussite globale",
+   "selectOverallAchievement" : "Sélectionner la réussite globale",
    "suggestedLevel" : "Suggestion : {level}"
 }

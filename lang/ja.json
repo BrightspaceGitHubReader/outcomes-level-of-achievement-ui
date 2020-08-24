@@ -1,10 +1,10 @@
 {
-    "calcHelpTitle": "Calculation Method Details",
-    "calculationMethod": "Calculation method: {calcMethod}",
-    "calculationMethodDetails": "Calculation Method Details",
-    "clearManualOverride": "Clear Manual Override",
-    "manuallyOverride": "Manually Override",
-    "recalculateOverallAchievement": "Recalculate Overall Achievement",
-    "selectOverallAchievement": "Select Overall Achievement",
-    "suggestedLevel": "推奨: {level}"
+   "calcHelpTitle" : "算定方法の詳細",
+   "calculationMethod" : "算定方法: {calcMethod}",
+   "calculationMethodDetails" : "算定方法の詳細",
+   "clearManualOverride" : "手動の上書きのクリア",
+   "manuallyOverride" : "手動の上書き",
+   "recalculateOverallAchievement" : "全体の達成度の再算定",
+   "selectOverallAchievement" : "全体の達成度の選択",
+   "suggestedLevel" : "推奨: {level}"
 }
