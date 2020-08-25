@@ -1,0 +1,10 @@
+{
+   "calcHelpTitle" : "Manylion Dull Cyfrifo",
+   "calculationMethod" : "Dull Cyfrifo: {calcMethod}",
+   "calculationMethodDetails" : "Manylion Dull Cyfrifo",
+   "clearManualOverride" : "Clirio Trosgrifio â Llaw",
+   "manuallyOverride" : "Trosgrifio â Llaw",
+   "recalculateOverallAchievement" : "Ailgyfrifo Cyflawniad Cyffredinol",
+   "selectOverallAchievement" : "Dewiswch Gyflawniad Cyffredinol",
+   "suggestedLevel" : "Awgrymwyd: {level}"
+}

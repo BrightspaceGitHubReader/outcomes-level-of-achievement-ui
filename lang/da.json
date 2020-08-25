@@ -1,3 +1,10 @@
 {
+   "calcHelpTitle" : "Oplysninger om beregningsmetode",
+   "calculationMethod" : "Beregningsmetode: {calcMethod}",
+   "calculationMethodDetails" : "Oplysninger om beregningsmetode",
+   "clearManualOverride" : "Ryd manuel tilsidesættelse",
+   "manuallyOverride" : "Manuel tilsidesættelse",
+   "recalculateOverallAchievement" : "Genberegn overordnet præstation",
+   "selectOverallAchievement" : "Vælg samlet præstation",
    "suggestedLevel" : "Anbefalet: {level}"
 }
